@@ -86,8 +86,8 @@
     }
 
     .btn .icons img {
-      width: 28px;
-      height: 28px;
+      width: 38px;
+      height: 38px;
       object-fit: contain;
     }
 
@@ -98,11 +98,17 @@
       position: absolute;
       top: 20px;
       left: 30px;
+      text-decoration: none; /* remove sublinhado padrão de links */
+    }
+
+    .logo:hover {
+      color: #b497ff; /* muda a cor no hover pra indicar que é clicável */
     }
   </style>
 </head>
 <body>
-  <div class="logo"> FLASHSCREENER</div>
+  <!-- Logo com link -->
+  <a href="https://flashscreener.com" class="logo" target="_blank"> FLASHSCREENER</a>
 
   <header>
     <div class="search-box">
@@ -114,14 +120,15 @@
     <p>See who are the top holders and how much they own</p>
   </header>
 
-<div class="buttons">
-  <a href="#install" class="btn">
-    Install Extension
-    <div class="icons">
-      <img src="brave.png" alt="Brave">
-      <img src="chrome.png" alt="Chrome">
-      <img src="edge.png" alt="Edge">
-    </div>
-  </a>
-</div>
-
+  <div class="buttons">
+    <a href="https://chromewebstore.google.com/detail/flashca/gcofgbleammojncmhnkkabhlbhmeanhd?utm_source=ext" class="btn" target="_blank">
+      Install Extension
+      <div class="icons">
+        <img src="brave.png" alt="Brave">
+        <img src="chrome.png" alt="Chrome">
+        <img src="edge.png" alt="Edge">
+      </div>
+    </a>
+  </div>
+</body>
+</html>
