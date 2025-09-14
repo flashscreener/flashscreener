@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #000000, #1c1179);
+      background: linear-gradient(135deg, #0a093d, #1b0e61);
       color: white;
       text-align: center;
       display: flex;
@@ -79,6 +79,19 @@
       transform: scale(1.05);
     }
 
+    .btn .icons {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn .icons img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
     .logo {
       font-size: 22px;
       font-weight: bold;
@@ -104,9 +117,17 @@
 
   <div class="buttons">
     <a href="#ca-checker" class="btn">CA Checker</a>
-    <a href="#install" class="btn">Install Extension</a>
+    
+    <a href="#install" class="btn">
+      Install Extension
+      <div class="icons">
+        <img src="brave.png" alt="Brave">
+        <img src="chrome.png" alt="Chrome">
+        <img src="edge.png" alt="Edge">
+      </div>
+    </a>
+    
     <a href="#charts" class="btn">Follow Charts</a>
   </div>
 </body>
 </html>
-
