@@ -7,8 +7,6 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
-  <!-- Se usar .ico -->
-  <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
 
   <style>
     body {
@@ -105,34 +103,35 @@
       position: absolute;
       top: 20px;
       left: 20px;
-      text-decoration: none; /* remove sublinhado padrão de links */
+      text-decoration: none;
     }
 
     .logo:hover {
-      color: #b497ff; /* muda a cor no hover pra indicar que é clicável */
+      color: #b497ff;
     }
 
     footer {
-      margin-top: auto; /* joga o rodapé para o final */
-      padding: 20px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #111133;
+      color: #ccc;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 14px;
+      border-top: 1px solid #333;
     }
 
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
+    footer a {
+      color: #8f5eff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
     }
 
-    .social-icons img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      transition: transform 0.3s;
-      cursor: pointer;
-    }
-
-    .social-icons img:hover {
-      transform: scale(1.2);
+    footer a:hover {
+      color: #b497ff;
     }
   </style>
 </head>
@@ -161,19 +160,13 @@
     </a>
   </div>
 
-  <!-- Rodapé com redes sociais -->
+  <!-- Rodapé fixo em formato de barra -->
   <footer>
-    <div class="social-icons">
-      <a href="https://twitter.com/" target="_blank">
-        <img src="twitter.png" alt="Twitter">
-      </a>
-      <a href="https://t.me/" target="_blank">
-        <img src="telegram.png" alt="Telegram">
-      </a>
-      <a href="https://discord.com/" target="_blank">
-        <img src="discord.png" alt="Discord">
-      </a>
-    </div>
+    <p>
+      <a href="https://twitter.com" target="_blank">Twitter</a> |
+      <a href="https://t.me" target="_blank">Telegram</a> |
+      <a href="https://discord.com" target="_blank">Discord</a>
+    </p>
   </footer>
 </body>
 </html>
