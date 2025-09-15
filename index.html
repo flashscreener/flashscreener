@@ -115,21 +115,23 @@
       background: #111133;
       color: #ccc;
       text-align: center;
-      padding: 1px 0;
-      font-size: 14px;
+      padding: 4px 0; /* altura bem fina */
+      font-size: 12px; /* fonte menor */
+      font-weight: normal; /* não fica bold */
+      font-style: normal; /* remove itálico */
       border-top: 1px solid #333;
-      margin-top: auto; /* faz o rodapé descer quando o conteúdo for pouco */
+      margin-top: auto;
     }
 
     footer a {
       color: #ffffff;
       text-decoration: none;
-      margin: 0 10px;
-      font-weight: bold;
+      margin: 0 8px;
+      font-weight: normal; /* links também não ficam bold */
     }
 
     footer a:hover {
-      color: #ffffff;
+      color: #b497ff;
     }
   </style>
 </head>
@@ -158,7 +160,7 @@
     </a>
   </div>
 
-  <!-- Rodapé que se move com o scroll -->
+  <!-- Rodapé -->
   <footer>
     <p>
       <a href="https://x.com/flashscreener" target="_blank">X | Twitter</a>
@@ -166,3 +168,4 @@
   </footer>
 </body>
 </html>
+
