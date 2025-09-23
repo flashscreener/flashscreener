@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FlashScreener</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png"/>
 
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      overscroll-behavior: none; /* remove o fundo branco ao rolar demais */
+      overscroll-behavior: none;
     }
 
     body {
@@ -30,9 +30,7 @@
       padding-top: 70px;
     }
 
-    header {
-      margin-bottom: 20px;
-    }
+    header { margin-bottom: 20px; }
 
     .search-box {
       margin: 15px auto;
@@ -42,6 +40,7 @@
 
     .search-box input {
       width: 400px;
+      max-width: 90vw;
       padding: 12px 20px;
       border-radius: 25px;
       border: none;
@@ -68,6 +67,9 @@
       margin-top: 5px;
       display: flex;
       justify-content: center;
+      align-items: stretch;
+      gap: 16px;              /* espaço entre os botões */
+      flex-wrap: wrap;        /* quebra para a linha de baixo em telas pequenas */
     }
 
     .btn {
@@ -83,6 +85,7 @@
       text-decoration: none;
       display: inline-block;
       min-width: 220px;
+      line-height: 1.1;
     }
 
     .btn:hover {
@@ -113,16 +116,14 @@
       text-decoration: none;
     }
 
-    .logo:hover {
-      color: #3e27b2;
-    }
+    .logo:hover { color: #3e27b2; }
 
     footer {
       width: 100%;
       background: #060611;
       color: #ccc;
       text-align: center;
-      padding: 9px 0; /* altura bem fina */
+      padding: 9px 0;
       font-size: 15px;
       font-weight: normal;
       font-style: normal;
@@ -137,14 +138,11 @@
       font-weight: normal;
     }
 
-    footer a:hover {
-      color: #b497ff;
-    }
+    footer a:hover { color: #b497ff; }
   </style>
 </head>
 <body>
-  <!-- Logo com link (agora redireciona dentro do site) -->
-  <a href="/home/" class="logo"> FLASHSCREENER</a>
+  <a href="/home/" class="logo">FLASHSCREENER</a>
 
   <header>
     <div class="search-box">
@@ -157,7 +155,9 @@
   </header>
 
   <div class="buttons">
-    <a href="https://chromewebstore.google.com/detail/flashca/gcofgbleammojncmhnkkabhlbhmeanhd?utm_source=ext" class="btn" target="_blank">
+    <!-- Botão existente -->
+    <a href="https://chromewebstore.google.com/detail/flashca/gcofgbleammojncmhnkkabhlbhmeanhd?utm_source=ext"
+       class="btn" target="_blank" rel="noopener">
       Install Extension
       <div class="icons">
         <img src="brave.png" alt="Brave">
@@ -165,13 +165,18 @@
         <img src="edge.png" alt="Edge">
       </div>
     </a>
+
+    <!-- Novo botão What if (com 'marketcap' na linha de baixo) -->
+    <a href="/whatif/" class="btn">
+      What if<br>marketcap
+    </a>
   </div>
 
-  <!-- Rodapé super fino -->
   <footer>
-    <a href="https://x.com/flashscreener" target="_blank">X | Twitter</a>
+    <a href="https://x.com/flashscreener" target="_blank" rel="noopener">X | Twitter</a>
     <a href="/privacy/">Privacy Policy</a>
   </footer>
 </body>
 </html>
+
 
