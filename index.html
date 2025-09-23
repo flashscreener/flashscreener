@@ -5,10 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FlashScreener</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
   <style>
+    :root{
+      --btn-bg:#2e2e83;
+      --btn-bg-hover:#4646c2;
+      --footer-bg:#060611;
+      --brand:#3e27b2;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
@@ -73,7 +79,7 @@
     }
 
     .btn {
-      background: linear-gradient(135deg, #1c1c4b, #2e2e83);
+      background: var(--btn-bg);
       color: white;
       font-size: 35px;
       font-weight: bold;
@@ -81,7 +87,7 @@
       padding: 45px 45px;
       border-radius: 15px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: transform .3s, background .3s;
       text-decoration: none;
       display: inline-block;
       min-width: 220px;
@@ -89,7 +95,7 @@
     }
 
     .btn:hover {
-      background: linear-gradient(135deg, #2e2e83, #4646c2);
+      background: var(--btn-bg-hover);
       transform: scale(1.05);
     }
 
@@ -104,14 +110,9 @@
       width: 65px;
       height: 65px;
       object-fit: contain;
+      border-radius: 15px;
     }
 
-    /* Cantos arredondados apenas nas imagens do primeiro botão (Install Extension) */
-    .btn-install .icons img {
-      border-radius: 15px; /* igual ao raio dos botões */
-    }
-
-    /* Somente o botão "What if / marketcap" */
     .btn-whatif {
       font-size: 26px;
       padding: 50px 40px;
@@ -123,19 +124,18 @@
     .logo {
       font-size: 22px;
       font-weight: bold;
-      color: #3e27b2;
+      color: var(--brand);
       position: fixed;
       top: 20px;
       left: 20px;
       text-decoration: none;
       cursor: pointer;
     }
-
-    .logo:hover { color: #3e27b2; }
+    .logo:hover { color: var(--brand); }
 
     footer {
       width: 100%;
-      background: #060611;
+      background: var(--footer-bg);
       color: #ccc;
       text-align: center;
       padding: 9px 0;
@@ -152,12 +152,10 @@
       margin: 0 8px;
       font-weight: normal;
     }
-
     footer a:hover { color: #b497ff; }
   </style>
 </head>
 <body>
-  <!-- Logo com navegação para a home -->
   <a href="https://flashscreener.com/" class="logo" id="logoLink">FLASHSCREENER</a>
 
   <header>
@@ -171,7 +169,6 @@
   </header>
 
   <div class="buttons">
-    <!-- Botão Install Extension -->
     <a href="https://chromewebstore.google.com/detail/flashca/gcofgbleammojncmhnkkabhlbhmeanhd?utm_source=ext"
        class="btn btn-install" target="_blank" rel="noopener">
       Install Extension
@@ -182,7 +179,6 @@
       </div>
     </a>
 
-    <!-- Botão What if (com 'marketcap' na linha de baixo) -->
     <a href="/whatif/" class="btn btn-whatif">
       <span class="line-1">WHAT IF</span>
       <span class="line-2">MARKETCAP</span>
@@ -195,7 +191,6 @@
   </footer>
 
   <script>
-    // Garante que clicar na logo leve sempre para a home principal
     document.getElementById('logoLink').addEventListener('click', function (e) {
       e.preventDefault();
       window.location.href = 'https://flashscreener.com/';
@@ -203,3 +198,4 @@
   </script>
 </body>
 </html>
+
