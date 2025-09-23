@@ -106,6 +106,15 @@
       object-fit: contain;
     }
 
+    /* --- Somente o botão "What if / marketcap" --- */
+    .btn-whatif {
+      font-size: 26px;      /* ajusta o tamanho da fonte apenas neste botão */
+      padding: 36px 40px;   /* ajusta o padding apenas neste botão */
+      line-height: 1.1;
+    }
+    .btn-whatif .line-1 { display: block; font-size: 28px; }
+    .btn-whatif .line-2 { display: block; font-size: 18px; margin-top: 4px; opacity: .95; }
+
     .logo {
       font-size: 22px;
       font-weight: bold;
@@ -114,6 +123,7 @@
       top: 20px;
       left: 20px;
       text-decoration: none;
+      cursor: pointer;
     }
 
     .logo:hover { color: #3e27b2; }
@@ -142,7 +152,8 @@
   </style>
 </head>
 <body>
-  <a href="/home/" class="logo">FLASHSCREENER</a>
+  <!-- Logo com navegação para a home -->
+  <a href="https://flashscreener.com/" class="logo" id="logoLink">FLASHSCREENER</a>
 
   <header>
     <div class="search-box">
@@ -155,7 +166,7 @@
   </header>
 
   <div class="buttons">
-    <!-- Botão existente -->
+    <!-- Botão Install Extension -->
     <a href="https://chromewebstore.google.com/detail/flashca/gcofgbleammojncmhnkkabhlbhmeanhd?utm_source=ext"
        class="btn" target="_blank" rel="noopener">
       Install Extension
@@ -166,9 +177,10 @@
       </div>
     </a>
 
-    <!-- Novo botão What if (com 'marketcap' na linha de baixo) -->
-    <a href="/whatif/" class="btn">
-      What if<br>marketcap
+    <!-- Botão What if (com 'marketcap' na linha de baixo) -->
+    <a href="/whatif/" class="btn btn-whatif">
+      <span class="line-1">What if</span>
+      <span class="line-2">marketcap</span>
     </a>
   </div>
 
@@ -176,7 +188,13 @@
     <a href="https://x.com/flashscreener" target="_blank" rel="noopener">X | Twitter</a>
     <a href="/privacy/">Privacy Policy</a>
   </footer>
+
+  <script>
+    // Garante que clicar na logo leve sempre para a home principal
+    document.getElementById('logoLink').addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location.href = 'https://flashscreener.com/';
+    });
+  </script>
 </body>
 </html>
-
-
