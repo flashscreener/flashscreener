@@ -68,8 +68,8 @@
       display: flex;
       justify-content: center;
       align-items: stretch;
-      gap: 16px;              /* espaço entre os botões */
-      flex-wrap: wrap;        /* quebra para a linha de baixo em telas pequenas */
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     .btn {
@@ -106,10 +106,15 @@
       object-fit: contain;
     }
 
-    /* --- Somente o botão "What if / marketcap" --- */
+    /* Cantos arredondados apenas nas imagens do primeiro botão (Install Extension) */
+    .btn-install .icons img {
+      border-radius: 15px; /* igual ao raio dos botões */
+    }
+
+    /* Somente o botão "What if / marketcap" */
     .btn-whatif {
-      font-size: 26px;      /* ajusta o tamanho da fonte apenas neste botão */
-      padding: 52px 40px;   /* ajusta o padding apenas neste botão */
+      font-size: 26px;
+      padding: 50px 40px;
       line-height: 1.5;
     }
     .btn-whatif .line-1 { display: block; font-size: 32px; }
@@ -168,7 +173,7 @@
   <div class="buttons">
     <!-- Botão Install Extension -->
     <a href="https://chromewebstore.google.com/detail/flashca/gcofgbleammojncmhnkkabhlbhmeanhd?utm_source=ext"
-       class="btn" target="_blank" rel="noopener">
+       class="btn btn-install" target="_blank" rel="noopener">
       Install Extension
       <div class="icons">
         <img src="brave.png" alt="Brave">
