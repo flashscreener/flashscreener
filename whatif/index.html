@@ -23,6 +23,7 @@
       --placeholder:#a9a6cf88;
       --shadow: 0 20px 40px rgba(0,0,0,.35);
       --radius: 22px;
+      --red:#ff5757; /* adicionado: cor para prejuízo */
       overscroll-behavior: none;
     }
     *{box-sizing:border-box}
@@ -201,6 +202,11 @@
       font-size: 11px;
       font-style: italic;
     }
+
+    /* adicionado: classe para pintar números em vermelho quando houver prejuízo */
+    .neg{ color: var(--red) !important; }
+    /* adicionado: quando o resultado estiver em queda, pinta multiplicadores em vermelho */
+    .down .xleft, .down .xright { color: var(--red) !important; }
   </style>
 </head>
 <body>
@@ -276,6 +282,7 @@
   <script>
     const $ = (q)=>document.querySelector(q);
     const nfUSD = new Intl.NumberFormat('en-US', { style:'currency', currency:'USD', maximumFractionDigits:6 });
+    const nfUSD2 = new Intl.NumberFormat('en-US', { style:'currency', currency:'USD', minimumFractionDigits:2, maximumFractionDigits:2 }); // adicionado: USD com 2 casas
     const nf2 = new Intl.NumberFormat('en-US', { maximumFractionDigits:2 });
     const shortUSD = (n)=>{
       if (n === null || n === undefined || !isFinite(n)) return '—';
@@ -393,6 +400,22 @@
         $('#img2').src = t.image || 'whatif.png';
       }
     }
+
+    function setLossStyles({ isLoss, isDown }){
+      // pinta/limpa vermelho nos números de lucro
+      ['#pPct','#pUsd','#pSol'].forEach(sel=>{
+        const el = $(sel);
+        if (el) el.classList.toggle('neg', isLoss);
+      });
+      // pinta multiplicadores em vermelho quando o alvo é menor que o atual (queda)
+      const card = $('#resultCard');
+      if (card) card.classList.toggle('down', isDown);
+      ['#xLeft','#xRight'].forEach(sel=>{
+        const el = $(sel);
+        if (el) el.classList.toggle('neg', isDown);
+      });
+    }
+
     function compute(){
       const t1 = state.t1, t2 = state.t2;
       if (!t1 || !t2){
@@ -407,6 +430,7 @@
       const targetPrice = t1.price * multiplier;
       $('#resultPrice').textContent = `PRICE ${nfUSD.format(targetPrice)}`;
       $('#resultCap').textContent   = `MKT CAP: ${shortUSD(t2.marketCap)}`;
+
       const mega = $('#megaX');
       const card = $('#resultCard');
       if (multiplier > 100){
@@ -422,22 +446,32 @@
         mega.style.display = 'none';
         card.classList.remove('tall');
       }
+
       const qty = parseFloat(($('#bags').value||'').replace(',', '.')) || 0;
       const currentVal = qty * (t1.price||0);
       const targetVal  = qty * (targetPrice||0);
       const profitUSD  = targetVal - currentVal;
       const pct = (multiplier - 1) * 100;
+
       $('#pPct').textContent = `${profitUSD>=0?'+':''}${nf2.format(pct)}%`;
-      $('#pUsd').textContent = `${profitUSD>=0?'+':''}${nfUSD.format(profitUSD)}`;
+      $('#pUsd').textContent = `${profitUSD>=0?'+':''}${nfUSD2.format(profitUSD)}`; // 2 casas decimais no $USD (adicionado)
       if (state.solPrice){
         const sol = profitUSD / state.solPrice;
         $('#pSol').textContent = `${profitUSD>=0?'+':''}${nf2.format(sol)} SOL`;
       } else {
         $('#pSol').textContent = '—';
       }
+
+      // aplica estilos de prejuízo/vermelho quando apropriado (adicionado)
+      const isLoss = profitUSD < 0;
+      const isDown = multiplier < 1;
+      setLossStyles({ isLoss, isDown });
+
       $('#hint').textContent = '';
     }
+
     (async ()=>{ state.solPrice = await getSolPriceUSD(); })();
+
     async function handle(side){
       const input = side===1? $('#q1').value : $('#q2').value;
       try{
@@ -456,6 +490,7 @@
         }
       }
     }
+
     for (const sel of ['#q1','#q2','#bags']){
       document.querySelector(sel).addEventListener('keydown', (e)=>{ if (e.key==='Enter') document.querySelector('#go').click(); });
     }
