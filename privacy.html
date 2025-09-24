@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy - FlashScreener</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="../favicon.png">
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      overscroll-behavior: none; /* remove fundo branco ao rolar demais */
+      overscroll-behavior: none; 
     }
 
     body {
@@ -35,10 +35,11 @@
       top: 20px;
       left: 20px;
       text-decoration: none;
-      cursor: pointer;
     }
 
-    .logo:hover { color: #3e27b2; }
+    .logo:hover {
+      color: #3e27b2;
+    }
 
     h1 {
       font-size: 58px;
@@ -88,12 +89,14 @@
       font-weight: normal;
     }
 
-    footer a:hover { color: #b497ff; }
+    footer a:hover {
+      color: #b497ff;
+    }
   </style>
 </head>
 <body>
-  <!-- Logo (leva para a página inicial) -->
-  <a href="https://flashscreener.com/" class="logo" id="logoLink"> FLASHSCREENER</a>
+  <!-- Logo -->
+  <a href="https://flashscreener.com/" class="logo"> FLASHSCREENER</a>
 
   <!-- Título -->
   <h1>Privacy Policy</h1>
@@ -122,9 +125,16 @@
       We do not share, sell, or transfer user data to third parties under any circumstances.
     </p>
 
-    <h3>4. Third-Party Services</h3>
+    <h3>4. Extension Third-Party Services</h3>
     <p>
       The Extension does not use third-party analytics, advertising networks, or tracking tools.
+    </p>
+
+        <h3>4.1 Website Third-Party Services & APIs</h3>
+    <p>
+      To power the “What If” feature and market views, FlashScreener fetches public token and market data directly from CoinGecko and/or GeckoTerminal APIs.
+      When your browser requests this data, these providers may receive your IP address and standard technical details (e.g., user-agent). FlashScreener does 
+      not send any personal identifiers to these providers, and we do not store this data on our servers.
     </p>
 
     <h3>5. User Control</h3>
@@ -147,15 +157,7 @@
   <!-- Rodapé -->
   <footer>
     <a href="https://x.com/flashscreener" target="_blank">X | Twitter</a>
-    <a href="/privacy/">Privacy Policy</a>
+    <a href="/privacy">Privacy Policy</a>
   </footer>
-
-  <script>
-    // Garante que clicar na logo leve sempre para a home principal
-    document.getElementById('logoLink').addEventListener('click', function (e) {
-      e.preventDefault();
-      window.location.href = 'https://flashscreener.com/';
-    });
-  </script>
 </body>
 </html>
