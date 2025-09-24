@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What If • FLASHSCREENER</title>
+  <title>What If • FlashScreener</title>
   <link rel="icon" href="../favicon.png" type="image/png">
   <link rel="shortcut icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Open+Sans:ital,wght@1,400;1,600&display=swap" rel="stylesheet" />
   <style>
     :root{
       --bg1:#000000;
@@ -24,12 +23,13 @@
       --placeholder:#a9a6cf88;
       --shadow: 0 20px 40px rgba(0,0,0,.35);
       --radius: 22px;
+      --red:#ff5757;
       overscroll-behavior: none;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; font-family:'Open Sans', sans-serif; color:var(--text);
+      margin:0; font-family:'Inter',sans-serif; color:var(--text);
       background: radial-gradient(1200px 800px at 15% 5%, #140d37 0%, transparent 60%),
                   radial-gradient(1000px 700px at 85% 40%, #1e0d63 0%, transparent 60%),
                   linear-gradient(135deg, var(--bg1), var(--bg2));
@@ -37,13 +37,14 @@
     }
     .brand{
       position:fixed; left:20px; top:20px;
-      font-weight:800; letter-spacing:1px; font-size:22px;
+      font-weight:695; letter-spacing:0.1px; font-size:22px;
       color:#3e27b2; text-decoration:none; z-index:10;
     }
     .brand span{color:#3e27b2}
     .brand:focus-visible{outline:2px solid var(--purple); outline-offset:3px; border-radius:6px}
     .brand:hover{filter:brightness(1.2)}
-    main{flex:1; width:min(1280px, 96vw); margin:90px auto 40px; position:relative}
+    main{flex:1; width:min(1280px, 96vw); margin:90px auto 120px; position:relative}
+
     .grid{
       display:grid;
       grid-template-columns: 1fr minmax(420px, 520px) 1fr;
@@ -62,14 +63,54 @@
     .btn-wrap{
       grid-column:2; grid-row:2;
       display:flex; align-items:center; justify-content:center;
-      flex-direction:column; /* allows note under the button */
+      flex-direction:column;
     }
     .btn{
-      display:inline-flex; align-items:center; justify-content:center; height:60px; min-width:180px; padding:0 26px; border-radius:999px;
-      background:var(--purple); color:#fff; font-size:20px; font-weight:800; letter-spacing:.5px; border:none; cursor:pointer; box-shadow:var(--shadow);
-      transition:transform .08s ease, background .2s ease
+      position:relative;          
+      overflow:hidden;    
+      display:inline-flex; align-items:center; justify-content:center;
+      height:60px; min-width:180px; padding:0 26px; border-radius:999px;
+      background:var(--purple); color:#fff; font-size:20px; font-weight:800; letter-spacing:.5px;
+      border:none; cursor:pointer; box-shadow:var(--shadow);
+      transition:
+        transform .15s cubic-bezier(.2,.7,.2,1),
+        box-shadow .2s ease,
+        background .2s ease,
+        filter .2s ease;
     }
-    .btn:hover{background:var(--purple-2)}
+    .btn::before{
+      content:"";
+      position:absolute; top:-50%; left:-30%;
+      width:30%; height:200%;
+      transform:skewX(-20deg) translateX(-120%);
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent);
+      transition:transform .65s ease;
+      pointer-events:none;
+    }
+    .btn:hover{
+      background:var(--purple-2);
+      transform:translateY(-2px) scale(1.02);
+      box-shadow:
+        0 14px 34px rgba(123,77,255,.40),
+        0 0 0 1px rgba(255,255,255,.06) inset;
+    }
+    .btn:hover::before{
+      transform:skewX(-20deg) translateX(360%);
+    }
+    .btn:active{
+      transform:translateY(0) scale(.99);
+      box-shadow:
+        0 8px 18px rgba(123,77,255,.35),
+        0 0 0 1px rgba(255,255,255,.06) inset;
+    }
+    .btn:focus-visible{
+      outline:none;
+      box-shadow:
+        0 0 0 3px rgba(124,77,255,.55),
+        0 12px 28px rgba(123,77,255,.35),
+        0 0 0 1px rgba(255,255,255,.06) inset;
+    }
+
     .under-btn-note{
       margin-top:10px;
       font-family:'Open Sans', sans-serif;
@@ -200,6 +241,9 @@
       font-size: 11px;
       font-style: italic;
     }
+
+    .neg{ color: var(--red) !important; }
+    .down .xleft, .down .xright { color: var(--red) !important; }
   </style>
 </head>
 <body>
@@ -275,6 +319,7 @@
   <script>
     const $ = (q)=>document.querySelector(q);
     const nfUSD = new Intl.NumberFormat('en-US', { style:'currency', currency:'USD', maximumFractionDigits:6 });
+    const nfUSD2 = new Intl.NumberFormat('en-US', { style:'currency', currency:'USD', minimumFractionDigits:2, maximumFractionDigits:2 }); // adicionado: USD com 2 casas
     const nf2 = new Intl.NumberFormat('en-US', { maximumFractionDigits:2 });
     const shortUSD = (n)=>{
       if (n === null || n === undefined || !isFinite(n)) return '—';
@@ -392,6 +437,20 @@
         $('#img2').src = t.image || 'whatif.png';
       }
     }
+
+    function setLossStyles({ isLoss, isDown }){
+      ['#pPct','#pUsd','#pSol'].forEach(sel=>{
+        const el = $(sel);
+        if (el) el.classList.toggle('neg', isLoss);
+      });
+      const card = $('#resultCard');
+      if (card) card.classList.toggle('down', isDown);
+      ['#xLeft','#xRight'].forEach(sel=>{
+        const el = $(sel);
+        if (el) el.classList.toggle('neg', isDown);
+      });
+    }
+
     function compute(){
       const t1 = state.t1, t2 = state.t2;
       if (!t1 || !t2){
@@ -406,6 +465,7 @@
       const targetPrice = t1.price * multiplier;
       $('#resultPrice').textContent = `PRICE ${nfUSD.format(targetPrice)}`;
       $('#resultCap').textContent   = `MKT CAP: ${shortUSD(t2.marketCap)}`;
+
       const mega = $('#megaX');
       const card = $('#resultCard');
       if (multiplier > 100){
@@ -421,22 +481,31 @@
         mega.style.display = 'none';
         card.classList.remove('tall');
       }
+
       const qty = parseFloat(($('#bags').value||'').replace(',', '.')) || 0;
       const currentVal = qty * (t1.price||0);
       const targetVal  = qty * (targetPrice||0);
       const profitUSD  = targetVal - currentVal;
       const pct = (multiplier - 1) * 100;
+
       $('#pPct').textContent = `${profitUSD>=0?'+':''}${nf2.format(pct)}%`;
-      $('#pUsd').textContent = `${profitUSD>=0?'+':''}${nfUSD.format(profitUSD)}`;
+      $('#pUsd').textContent = `${profitUSD>=0?'+':''}${nfUSD2.format(profitUSD)}`;
       if (state.solPrice){
         const sol = profitUSD / state.solPrice;
         $('#pSol').textContent = `${profitUSD>=0?'+':''}${nf2.format(sol)} SOL`;
       } else {
         $('#pSol').textContent = '—';
       }
+
+      const isLoss = profitUSD < 0;
+      const isDown = multiplier < 1;
+      setLossStyles({ isLoss, isDown });
+
       $('#hint').textContent = '';
     }
+
     (async ()=>{ state.solPrice = await getSolPriceUSD(); })();
+
     async function handle(side){
       const input = side===1? $('#q1').value : $('#q2').value;
       try{
@@ -447,14 +516,15 @@
       }catch(e){
         const msg = 'Ops. Try again.';
         if (side===1){
-          $('#title1').textContent = msg; $('#price1').textContent='PRICE —'; $('#cap1').textContent='MKT CAP: —';
+          $('#title1').textContent = msg; $('#price1').textContent='PRICE'; $('#cap1').textContent='MKT CAP:';
           $('#img1').src = 'whatif.png';
         } else {
-          $('#title2').textContent = msg; $('#price2').textContent='PRICE —'; $('#cap2').textContent='MKT CAP: —';
+          $('#title2').textContent = msg; $('#price2').textContent='PRICE'; $('#cap2').textContent='MKT CAP:';
           $('#img2').src = 'whatif.png';
         }
       }
     }
+
     for (const sel of ['#q1','#q2','#bags']){
       document.querySelector(sel).addEventListener('keydown', (e)=>{ if (e.key==='Enter') document.querySelector('#go').click(); });
     }
