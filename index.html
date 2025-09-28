@@ -116,7 +116,7 @@
       margin: clamp(8px, 2vw, 12px) auto 0;
       display: grid;
       gap: clamp(12px, 2.4vw, 18px);
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr minmax(560px, 2fr) 1fr;
       align-items: stretch;
       justify-items: center;
     }
@@ -188,6 +188,7 @@
     @media (min-width: 1024px){
       .btn-install {
         min-width: 260px;
+        max-width: none;
         height: 195px;
         margin-top: 0;              /* remove o “drop” do meio */
         padding: 42px 54px;
