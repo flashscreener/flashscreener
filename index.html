@@ -26,7 +26,7 @@
     }
     @media (min-width:1024px){
       :root{
-        --top-pad: calc(70px + env(safe-area-inset-top)); /* mais espaço no desktop */
+        --top-pad: calc(70px + env(safe-area-inset-top)); /* desktop */
       }
     }
 
@@ -38,7 +38,7 @@
       overscroll-behavior: none;
     }
 
-    /* Fundo único e fixo para o site todo */
+    /* Fundo único e fixo */
     body{ background: transparent; }
     body::before{
       content:"";
@@ -81,16 +81,21 @@
       padding: 0 var(--space-sm);
     }
 
-    header { margin-bottom: clamp(12px, 3vw, 24px); }
+    /* Centraliza TODOS os filhos do header horizontalmente */
+    header{
+      display: grid;
+      justify-items: center;
+      row-gap: clamp(8px, 2vw, 18px);
+      margin-bottom: clamp(12px, 3vw, 24px);
+    }
 
     .search-box {
-      visibility: hidden;
+      visibility: hidden;                 /* fica invisível mas mantém a altura */
       margin: 0 auto var(--space);
       display: flex;
       justify-content: center;
       width: 100%;
     }
-
     .search-input {
       visibility: hidden;
       width: min(500px, 100%);
@@ -105,14 +110,22 @@
     }
     .search-input::placeholder{ color: rgba(255,255,255,.65); }
 
-    h1 {
-      white-space: nowrap;
+    /* H1 centralizado ao pixel no desktop e responsivo */
+    h1{
+      white-space: nowrap;                 /* 1 linha */
       font-size: clamp(28px, 8vw, 93px);
       font-weight: 900;
-      margin: clamp(8px, 2vw, 16px) 0;
       line-height: 1.05;
       letter-spacing: .5px;
       text-align: center;
+      margin: clamp(8px, 2vw, 16px) 0;
+    }
+    @media (min-width:1024px){
+      h1{
+        width: max-content;                /* largura = do texto */
+        margin-left: auto;                 /* centraliza o bloco */
+        margin-right: auto;
+      }
     }
 
     .subtext{
@@ -123,6 +136,7 @@
       font-style: italic;
       max-width: 900px;
       padding: 0 var(--space-sm);
+      text-align: center;
     }
 
     /* GRID */
@@ -186,24 +200,21 @@
       border-radius: 12px;
     }
 
-    .btn-whatif { visibility: hidden; text-transform: none; gap: 6px; line-height: 1.55; }
-    .btn-whatif .line-1 { font-size: clamp(22px, 6vw, 42px); font-weight: 800; white-space: nowrap; }
-    .btn-whatif .line-2 { font-size: clamp(12px, 3.5vw, 16px); font-style: italic; opacity: 0.75; font-weight: 600; letter-spacing: 0.02em; }
-
-    .btn-charts { visibility: hidden; text-transform: none; gap: 6px; line-height: 1.55; }
-    .btn-charts .line-1 { font-size: clamp(22px, 6vw, 42px); font-weight: 800; }
-    .btn-charts .line-2 { font-size: clamp(12px, 3.5vw, 16px); font-style: italic; opacity: 0.75; font-weight: 600; letter-spacing: 0.02em; }
-    .is-disabled { filter: grayscale(0.05); opacity: 0.90; }
-    .btn-charts:hover { filter: none; }
+    /* Esconde CHARTS e WHAT IF sem apagar o código (mantém simetria) */
+    .btn-charts,
+    .btn-whatif{
+      visibility: hidden;
+      pointer-events: none;
+    }
 
     @media (min-width: 1024px){
       .btn-install{
         min-width: 290px;
-        max-width: none;     /* libera a largura no desktop */
+        max-width: none;
         min-height: 185px;
         padding: 42px 54px;
         font-size: clamp(18px, 6vw, 32px);
-        white-space: nowrap; /* texto em uma linha */
+        white-space: nowrap;
       }
       .btn-install .icons img{ width: 75px; height: 75px; }
     }
@@ -229,6 +240,7 @@
       font-weight: 600;
     }
     footer a:hover { color: #b497ff; }
+
     @media (prefers-reduced-motion: reduce){
       .btn, .btn:hover, .btn:active { transition: none; transform: none; }
     }
@@ -284,4 +296,5 @@
   </script>
 </body>
 </html>
+
 
