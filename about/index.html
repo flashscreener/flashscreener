@@ -71,10 +71,7 @@
     }
 
     /* Screenshot do tweet */
-    :root { --tweet-radius: 35px;--tweet-max: 560px;   --hover-lift: 6px;          /* “subida” */
-  --hover-scale: 1.02;        /* leve zoom */
-  --hover-rotate: -0.4deg;    /* tilt sutil */
-  --hover-brightness: 1.06;   /* brilho */}
+    :root { --tweet-radius: 35px;--tweet-max: 560px;  }
 
     .tweet-shot {
       margin: 20px 0 8px;
@@ -95,8 +92,8 @@
     }
     /* Hover mínimo: leve brilho e “levantar” 1px */
     .tweet-shot a:hover img{
-      transform: translateY(-1px);
-      filter: brightness(1.03);
+      transform: translateY(-2px);
+      filter: brightness(1.05);
       box-shadow:
         0 12px 34px rgba(0,0,0,0.38),
         0 0 0 1px rgba(255,255,255,0.08) inset;
