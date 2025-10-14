@@ -87,7 +87,7 @@
 
     h1{
       font-weight: 900;
-      margin: clamp(8px, 2vw, 16px) 0;
+      margin: clamp(7px, 2vw, 16px) 0;
       line-height: 1.05;
       letter-spacing: .5px;
       text-align: center;
@@ -104,7 +104,7 @@
 
     .subtext{
       font-size: clamp(14px, 3.6vw, 18px);
-      margin: clamp(10px, 2.6vw, 28px) auto 0;
+      margin: clamp(7px, 2.6vw, 28px) auto 0;
       color: #ffffff;
       opacity: 0.85;
       font-style: italic;
@@ -129,8 +129,8 @@
       .buttons{
         grid-template-columns: 1fr minmax(560px, 2fr) 1fr; /* centro mais largo (original) */
         align-items: end;                              /* alinhamento original */
-        margin-top: 20px;
-        margin-bottom: 9vh;
+        margin-top: 18px;
+        margin-bottom: 2vh;
       }
     }
 
@@ -339,6 +339,35 @@
       .btn-side::before,
       .btn-side::after{ animation:none !important; transition:none !important; opacity:0 !important; }
     }
+
+    /* ====== ADIÇÕES PARA A SEGUNDA SESSÃO ====== */
+    .section-telegram{
+      width: var(--container);
+      margin: clamp(0px, 10vw, 8px) auto 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(8px, 2vw, 18px);
+    }
+    /* grid próprio para centralizar um único botão grande */
+    .buttons-bot{
+      width: var(--container);
+      margin: clamp(9px, 3vw, 30px) auto 10vh;
+      display: grid;
+      grid-template-columns: minmax(260px, 600px);
+      justify-content: center;
+      gap: clamp(12px, 2.4vw, 18px);
+    }
+    @media (min-width:1024px){
+      .buttons-bot{
+        grid-template-columns: minmax(560px, 720px);
+        margin-bottom: 7vh;
+        margin-top: 1px;
+      }
+    }
+    /* botão do bot reaproveita .btn-install (sem icons necessários) */
+    .btn-bot{ /* opcional para ganchos futuros */
+    }
   </style>
 </head>
 <body>
@@ -380,6 +409,21 @@
       <span class="sub">For the culture</span>
     </a>
   </main>
+
+  <!-- ====== NOVA SESSÃO: MASTER THE TELEGRAM ====== -->
+  <section class="section-telegram container" aria-labelledby="telegram-title">
+    <h1 id="telegram-title">MASTER OF TELEGRAM</h1>
+
+    <p class="subtext">Send any Solana CA and our bot will reply you with everything</p>
+    <p class="subtext">Price, MCap, liquidity, creation date... All the details and links you need to outperform CT</p>
+    <p class="subtext">Dominate everything! Completely FREE, easy and fast</p>
+
+    <div class="buttons-bot">
+      <a href="https://t.me/FlashScreenerBot" class="btn btn-install btn-bot" target="_blank" rel="noopener">
+        ADD FLASHSCREENER BOT👾
+      </a>
+    </div>
+  </section>
 
   <footer>
     <a href="https://x.com/flashscreener" target="_blank" rel="noopener">X | Twitter</a>
