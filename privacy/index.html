@@ -116,8 +116,7 @@
 
     <h3>2. Permissions</h3>
     <p>
-      The Extension may request certain Chrome permissions (such as context menus, storage, or activeTab) in order to provide its core functionality.
-      These permissions are used exclusively for the features described in the Extension’s description and are not used to access personal or sensitive data.
+      Host permissions (http/https pages): allow the content script to run on pages you visit in order to detect Base58 strings that match Solana CAs and show the quick-links overlay. Detection happens locally in your browser; page content is not collected or sent to our servers. Scripting / Content scripts on specific domains only (x.com, twitter.com, web.telegram.org), inject the lightweight UI overlay after a CA is detected.
     </p>
 
     <h3>3. Data Sharing</h3>
@@ -146,7 +145,6 @@
       X | Twitter <a href="https://x.com/flashscreener" target="_blank" style="color:#ffffff;">@flashscreener</a>
     </p>
 
-    <!-- New Section (keeps the exact same font/spacing model: h3 + p blocks) -->
     <h2>$FLASH Token — Disclosures &amp; Notices</h2>
 
     <h3>Nature of $FLASH</h3>
