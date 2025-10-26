@@ -1,231 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy - FlashScreener</title>
-  <link rel="icon" type="image/png" href="../favicon.png">
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overscroll-behavior: none;
-    }
-
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background: linear-gradient(135deg, #000000, #1c1179);
-      background-attachment: fixed;
-      color: white;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      min-height: 100vh;
-      padding-top: 70px;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      color: #3e27b2;
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      text-decoration: none;
-    }
-
-    .logo:hover {
-      color: #3e27b2;
-    }
-
-    h1 {
-      font-size: 58px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 29px;
-      font-weight: normal;
-      font-style: italic;
-      margin-bottom: 40px;
-      opacity: 0.8;
-    }
-
-    .content {
-      max-width: 800px;
-      text-align: left;
-      line-height: 1.6;
-      font-size: 16px;
-      opacity: 0.9;
-    }
-
-    h3 {
-      margin-top: 25px;
-      font-size: 20px;
-      color: #fff;
-    }
-
-    footer{
-      width: 100%;
-      background-color: #060611; 
-      color: #9b9b9b;
-      text-align: center;
-      padding: 4px 0 calc(9px + env(safe-area-inset-bottom));
-      font-size: clamp(12px, 2.2vw, 11px);
-      font-weight: 330;
-      border-top: 0.5px solid #333;
-      margin-top: auto;
-      background-image: none;  
-    }
-
-    footer a {
-      color: #595959;
-      text-decoration: none;
-      margin: 0 8px;
-      font-weight: normal;
-    }
-
-    footer a:hover {
-      color: #b497ff;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#4d0fff">
+    <title>Privacy Policy | FlashScreener</title>
+    <link rel="stylesheet" href="privacy-policy.css">
 </head>
 <body>
-  <!-- Logo -->
-  <a href="https://flashscreener.com/" class="logo"> FLASHSCREENER</a>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="https://www.flashscreener.com/">Home</a></li>
+			      <li><a href="/about">About</a></li>
+            <li><a href="index.html#features">Tools</a></li>
+            <li><a href="index.html#flashcoin">Flash Coin</a></li>
+            <li><a href="index.html#social">Community</a></li>
+            
+        </ul>
+    </nav>
 
-  <!-- Title -->
-  <h1>Privacy Policy</h1>
-  <h2>How FlashScreener handles and protects your data</h2>
+    <!-- Header -->
+    <header class="policy-header">
+        <div class="header-content">
+            <img src="img/Flogo.png" alt="FlashScreener Logo" class="header-logo">
+            <h1>PRIVACY POLICY </h1>
+            <p class="last-updated">This Privacy Policy describes how the FlashScreener Chrome Extension ("we", "our", "the Extension") handles user data.</p>
+			<p class="last-updated">Last Updated Oct 2025.</p>
+        </div>
+    </header>
 
-  <!-- Content -->
-  <div class="content">
-    <p>
-      This Privacy Policy describes how the <strong>FlashScreener</strong> Chrome Extension ("we", "our", "the Extension") handles user data.
-    </p>
+    <!-- Main Content -->
+    <main class="policy-content">
+        <div class="content-container">
+            
+      
 
-    <h3>1. Information Collection</h3>
-    <p>
-      The Extension does not collect, store, transmit, or share any personally identifiable information (PII).
-      All operations occur locally within the user’s browser. We do not use external servers or databases to process or store data.
-    </p>
+            <!-- Information Collection -->
+            <section class="policy-section">
+                <h2>1. Information Collection</h2>
+                <p>The Extension <strong>does not collect, store, transmit, or share any personally identifiable information (PII)</strong>. All operations occur locally within the user's browser. We do not use external servers or databases to process or store data.</p>
+            </section>
 
-    <h3>2. Permissions</h3>
-    <p>
-      Host permissions (http/https pages): allow the content script to run on pages you visit in order to detect Base58 strings that match Solana CAs and show the quick-links overlay. Detection happens locally in your browser; page content is not collected or sent to our servers. Scripting / Content scripts on specific domains only (x.com, twitter.com, web.telegram.org), inject the lightweight UI overlay after a CA is detected.
-    </p>
+            <!-- Permissions -->
+            <section class="policy-section">
+                <h2>2. Permissions</h2>
+                <p><strong>Host permissions (http/https pages):</strong> allow the content script to run on pages you visit in order to detect Base58 strings that match Solana CAs and show the quick-links overlay. Detection happens locally in your browser; page content is not collected or sent to our servers.</p>
+                <p><strong>Scripting / Content scripts on specific domains only</strong> (x.com, twitter.com, web.telegram.org), inject the lightweight UI overlay after a CA is detected.</p>
+            </section>
 
-    <h3>3. Data Sharing</h3>
-    <p>
-      We do not share, sell, or transfer user data to third parties under any circumstances.
-    </p>
+            <!-- Data Sharing -->
+            <section class="policy-section">
+                <h2>3. Data Sharing</h2>
+                <p class="highlight-text">We do not share, sell, or transfer user data to third parties under any circumstances.</p>
+            </section>
 
-    <h3>4. Extension Third-Party Services</h3>
-    <p>
-      The Extension does not use third-party analytics, advertising networks, or tracking tools. FlashScreener is an independent tool. Pump.fun, Dexscreener, Solscan, Photon Trading and all related names and logos are trademarks of their respective owners. Links are provided for convenience, no affiliation or endorsement is implied.
-    </p>
+            <!-- Third-Party Services -->
+            <section class="policy-section">
+                <h2>4. Extension Third-Party Services</h2>
+                <p>The Extension <strong>does not use third-party analytics, advertising networks, or tracking tools</strong>.</p>
+                <p>FlashScreener is an independent tool. Pump.fun, Dexscreener, Solscan, Photon Trading and all related names and logos are trademarks of their respective owners. Links are provided for convenience, no affiliation or endorsement is implied.</p>
+            </section>
 
-    <h3>5. User Control</h3>
-    <p>
-      Since no personal data is collected, there is no data for the user to request access to, modify, or delete.
-      The user can uninstall the Extension at any time through their browser settings.
-    </p>
+            <!-- User Control -->
+            <section class="policy-section">
+                <h2>5. User Control</h2>
+                <p>Since no personal data is collected, there is no data for the user to request access to, modify, or delete. The user can uninstall the Extension at any time through their browser settings.</p>
+            </section>
 
-    <h3>6. Updates</h3>
-    <p>
-      We may update this Privacy Policy from time to time. Any updates will be published at this URL with a new effective date.
-    </p>
+            <!-- Updates -->
+            <section class="policy-section">
+                <h2>6. Updates</h2>
+                <p>We may update this Privacy Policy from time to time. Any updates will be published at this URL with a new effective date.</p>
+            </section>
 
-    <h3>7. Contact</h3>
-    <p>
-      X | Twitter <a href="https://x.com/flashscreener" target="_blank" style="color:#ffffff;">@flashscreener</a>
-    </p>
+            <!-- Contact -->
+            <section class="policy-section">
+                <h2>7. Contact</h2>
+                <div class="contact-links">
+                    <a href="https://x.com/flashscreener" class="contact-link">
+                        <span>𝕏</span> @flashscreener
+                    </a>
+                </div>
+            </section>
 
-    <h2>$FLASH Token — Disclosures &amp; Notices</h2>
+            <!-- $FLASH Token Section -->
+            <section class="policy-section highlight-section">
+                <h2>$FLASH Token — Disclosures & Notices</h2>
+                
+                <h3>Nature of $FLASH</h3>
+                <p>$FLASH is a cryptoasset that reflects the tokenization of the FlashScreener community and brand around the tool/extension. It does not grant equity, dividends, governance, voting, or any rights equivalent to shares/quotas of the tool or of any operating entity. <strong>$FLASH is not a guaranteed investment</strong>, nor should it be interpreted as, an offer of securities.</p>
 
-    <h3>Nature of $FLASH</h3>
-    </p>
-      $FLASH is a cryptoasset that reflects the tokenization of the FlashScreener community and brand around the tool/extension.
-      It does not grant equity, dividends, governance, voting, or any rights equivalent to shares/quotas of the tool or of any operating entity.
-      $FLASH is not a guaranteed investment, nor should it be interpreted as, an offer of securities.
-    </p>
+                <h3>No financial or legal advice</h3>
+                <p>Any information about $FLASH provided on the website, extension, or official channels is informational/educational only and does not constitute financial, legal, tax, or investment advice. Acquiring, trading, or using $FLASH is solely the user's responsibility.</p>
 
-    <h3>No financial or legal advice</h3>
-    </p>
-      Any information about $FLASH provided on the website, extension, or official channels is informational/educational only and does not constitute financial, legal, tax, or investment advice.
-      Acquiring, trading, or using $FLASH is solely the user’s responsibility.
-    </p>
+                <h3>Volatility and risks</h3>
+                <p class="highlight-text">Cryptoassets are highly volatile. Don't spend money you are not willing or able to lose.</p>
+                <p>Users should assess their risk tolerance and seek independent professional advice if needed.</p>
 
-    <h3>Volatility and risks</h3>
-    </p>
-      Cryptoassets are highly volatile. Don't spend money you are not willing or able to lose.
-      Users should assess their risk tolerance and seek independent professional advice if needed.
-    </p>
+                <h3>Extension remains free and independent of the token</h3>
+                <p>The FlashScreener extension remains <strong>free and open to all users</strong>. No purchase or holding of $FLASH is required to install, access, or use the extension, now or in the future.</p>
 
-    <h3>Extension remains free and independent of the token</h3>
-    </p>
-      The FlashScreener extension remains free and open to all users. No purchase or holding of $FLASH is required to install, access, or use the extension, now or in the future.
-    </p>
+                <h3>No affiliation or endorsement by Google</h3>
+                <p>The extension may run in the Google Chrome browser, but $FLASH is not affiliated with, sponsored, endorsed, or associated with Google LLC or Google Chrome. "Google" and "Chrome" are trademarks of their respective owners. Any reference is descriptive only.</p>
 
-    <h3>No affiliation or endorsement by Google</h3>
-    </p>
-      The extension may run in the Google Chrome browser, but $FLASH is not affiliated with, sponsored, endorsed, or associated with Google LLC or Google Chrome.
-      “Google” and “Chrome” are trademarks of their respective owners. Any reference is descriptive only.
-    </p>
+                <h3>Data, privacy, and $FLASH</h3>
+                <p>Interactions with $FLASH occur via third-party wallets (e.g., Phantom, Solflare) and external platforms (e.g., DEXs, Pump.fun). <strong>We do not collect seed phrases or private keys and will never ask for them.</strong></p>
+                <p>Public addresses, balances, transactions, and other on-chain data are public by design on the Solana blockchain. We may read, display, or aggregate such data (e.g., holder counts, developer buybacks, liquidity status) for transparency, analytics, or informational purposes.</p>
 
-    <h3>Data, privacy, and $FLASH</h3>
-    </p>
-      Interactions with $FLASH occur via third-party wallets (e.g., Phantom, Solflare) and external platforms (e.g., DEXs, Pump.fun). We do not collect seed phrases or private keys and will never ask for them.
-      Public addresses, balances, transactions, and other on-chain data are public by design on the Solana blockchain. We may read, display, or aggregate such data (e.g., holder counts, developer buybacks, liquidity status) for transparency, analytics, or informational purposes.
-    </p>
+                <h3>Third-party platforms</h3>
+                <p>Buying, selling, swapping, providing liquidity, or any other $FLASH operations (when available) occur on third-party platforms. We do not control listings, pairs, prices, fees, liquidity locks, or uptime of those platforms. Links or embeds (e.g., charts) are provided for convenience and do not constitute endorsement.</p>
 
-    <h3>Third-party platforms</h3>
-    </p>
-      Buying, selling, swapping, providing liquidity, or any other $FLASH operations (when available) occur on third-party platforms. We do not control listings, pairs, prices, fees, liquidity locks, or uptime of those platforms.
-      Links or embeds (e.g., charts) are provided for convenience and do not constitute endorsement.
-    </p>
+                <h3>Updates to this section</h3>
+                <p>We may update these token-related disclosures at any time to reflect legal, technical, or operational changes. The current version will always be published on this page.</p>
+            </section>
 
-    <h3>Updates to this section</h3>
-    </p>
-      We may update these token-related disclosures at any time to reflect legal, technical, or operational changes. The current version will always be published on this page.
-    </p>
+            <!-- Telegram Bot Section -->
+            <section class="policy-section">
+                <h2>FlashScreener Telegram Bot</h2>
+                
+                <h3>Privacy & Data Use — FlashScreenerBOT</h3>
+                <p>FlashScreenerBOT only processes messages when it's invoked (mentions, commands, or messages in groups where it can read). We minimally handle: message content, chat/user IDs, and any contract address (CA) you provide to generate a reply.</p>
+                <p>We store only what's needed to run the bot: chat's filters (keyword → response) and the chat ID that owns them. <strong>We do not store conversation history, and we do not sell data.</strong> Admins can add, delete, or reset filters at any time with /flashsettings.</p>
 
-    <h2>FlashScreener Telegram Bot</h2>
+                <h3>APIs & third-party services</h3>
+                <p>This bot currently queries the following public API: <strong>GeckoTerminal (by CoinGecko)</strong> — prices, pairs, market cap.</p>
+                <p>By using the bot, you acknowledge that your use of data from this service is subject to the provider's terms and privacy policies. We are not affiliated with or endorsed by CoinGecko/GeckoTerminal, Solana Foundation, or Telegram. All trademarks are the property of their respective owners.</p>
 
-        <h3>Privacy & Data Use — FlashScreenerBOT</h3>
-    </p>
-      FlashScreenerBOT only processes messages when it’s invoked (mentions, commands, or messages in groups where it can read). We minimally handle: message content, chat/user IDs, and any contract address (CA) you provide to generate a reply.
-    </p>
-      We store only what’s needed to run the bot: chat’s filters (keyword → response) and the chat ID that owns them. We do not store conversation history, and we do not sell data. Admins can add, delete, or reset filters at any time with /flashsettings.
-    </p>
-        <h3>APIs & third-party services</h3>
-    </p>
-      This bot currently queries the following public API: <a href="https://www.coingecko.com/" target="_blank" style="color:#ffffff;">GeckoTerminal (by CoinGecko)</a> — prices, pairs, market cap. By using the bot, you acknowledge that your use of data from this service is subject to the provider’s terms and privacy policies. We are not affiliated with or endorsed by CoinGecko/GeckoTerminal, Solana Foundation, or Telegram. All trademarks are the property of their respective owners.
-    </p>
+                <h3>Permissions</h3>
+                <p>The bot does not require admin privileges. In groups, it only works if it can read messages. It does not send unsolicited private messages.</p>
 
-        <h3>Permissions</h3>
-    </p>
-      The bot does not require admin privileges. In groups, it only works if it can read messages. It does not send unsolicited private messages.
-    </p>
+                <h3>Updates to this section</h3>
+                <p>We may update these token-related disclosures at any time to reflect legal, technical, or operational changes. The current version will always be published on this page.</p>
+            </section>
 
-        <h3>Updates to this section</h3>
-    </p>
-      We may update these token-related disclosures at any time to reflect legal, technical, or operational changes. The current version will always be published on this page.
-    </p>
-  </div>
+        </div>
+    </main>
 
-    
-  <!-- Footer -->
-  <footer>
-    <a href="https://x.com/flashscreener" target="_blank" rel="noopener">X | Twitter</a>
-    <a href="/privacy/">Privacy Policy</a>
-    <a href="/about/" target="_self" rel="noopener">About</a>
-    <a href="/token/" target="_self" rel="noopener">$FLASH</a>
-    <a href="https://t.me/FlashScreener" target="_blank" rel="noopener">Telegram</a>
-  </footer>
+    <!-- Footer -->
+   <footer>
+    <div class="footer-socials">
+        <a href="https://x.com/flashscreener"><img src="img/twitter-x-logo.png" alt="Twitter/X"></a>
+        <a href="https://t.me/FlashScreener"><img src="img/Telegram_logo.webp" alt="Telegram"></a>
+    </div>
+    <p class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+    </p>
+    <p class="copyright">© 2025 FlashScreener. All rights reserved.</p>
+</footer>
 </body>
 </html>
