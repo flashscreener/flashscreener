@@ -132,6 +132,7 @@ nav ul li a:hover::after {
 .logo-container {
     margin-bottom: 2rem;
     margin-top: 2rem;
+   
 }
 
 .logo-container img {
@@ -1246,10 +1247,6 @@ footer {
     40%, 100% { opacity: 1; text-shadow: 0 0 40px var(--glow-purple); }
 }
 
-.glitch:hover {
-    animation: flash 0.0s ease;
-}
-
 .flash-f {
     font-family: 'Open Sans', sans-serif;
     font-style: italic;
@@ -1566,4 +1563,13 @@ footer {
     .btn-icon {
         font-size: 1.3rem;
     }
+}
+
+#hero h1,
+#hero h1 * {
+  cursor: default !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
