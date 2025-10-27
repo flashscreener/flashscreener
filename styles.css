@@ -1564,3 +1564,13 @@ footer {
         font-size: 1.3rem;
     }
 }
+
+#hero h1,
+#hero h1 * {
+  cursor: default !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
