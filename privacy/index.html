@@ -40,7 +40,7 @@
             <!-- Information Collection -->
             <section class="policy-section">
                 <h2>1. Information Collection</h2>
-                <p>The Extension <strong>does not collect, store, transmit, or share any personally identifiable information (PII)</strong>. All operations occur locally within the user's browser. We do not use external servers or databases to process or store data.</p>
+                <p>The Extension <strong>does not collect, store, transmit, or share any personally identifiable information (PII)</strong>. All operations occur locally within the user's browser. We do not use external servers or databases to process or store data. All stored data remains on user's device and is removed when the Extension is uninstalled.</p>
             </section>
 
             <!-- Permissions -->
@@ -48,6 +48,7 @@
                 <h2>2. Permissions</h2>
                 <p><strong>Host permissions (http/https pages):</strong> allow the content script to run on pages you visit in order to detect Base58 strings that match Solana CAs and show the quick-links overlay. Detection happens locally in your browser; page content is not collected or sent to our servers.</p>
                 <p><strong>Scripting / Content scripts on specific domains only</strong> (x.com, twitter.com, web.telegram.org), inject the lightweight UI overlay after a CA is detected.</p>
+				<p><strong>Scripting</strong>: used only to perform a one-time navigation fix in the newly opened Axiom tab (ensure route <code>/meme/&lt;pair&gt;?chain=sol</code>). We do not inject scripts into other sites.
             </section>
 
             <!-- Data Sharing -->
